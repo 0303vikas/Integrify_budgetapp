@@ -1,0 +1,29 @@
+main {
+  text-align: center;
+  & section {
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: space-around;
+    & aside, div{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  } 
+}
+
+section {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  align-items: center;
+}
+
+#form-income, #form-expense {
+  display: flex;
+  flex-direction: column;
+  grid-row-start: 1;
+  grid-row-end: 4;
+
+}
+
