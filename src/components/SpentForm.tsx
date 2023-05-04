@@ -27,6 +27,13 @@ const ExpenseHandlingForm = ({reduceAmount}: PropsExpenseHandling) => {
         setTransection([...transection,formData])
         reduceAmount(Number(amountInput.value))        
     }
+    const removeTransection = (itemIndex: number) => {
+        // This deletes the amount from the subtotal
+        // thats why -ve
+        reduceAmount(-Number(transection[itemIndex].amount))        
+        let newArray = transection.filter((item,index) => index !== itemIndex)
+        setTransection(newArray)
+    }
     return(
         <article>
             <form id="form-expense" onSubmit={handleSubmit}>
@@ -38,7 +45,7 @@ const ExpenseHandlingForm = ({reduceAmount}: PropsExpenseHandling) => {
                 <input id="input-data-expense" placeholder='dd.mm.yyyy' {...dateInput}  type='date'  required/> 
                 <button type="submit">Add expense</button>
             </form> 
-            <DataDisplayForm transectionHistory={transection}/>
+            <DataDisplayForm transectionHistory={transection} removeTransection={removeTransection}/>
         </article>
     )
 }

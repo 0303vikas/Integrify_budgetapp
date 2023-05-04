@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import useInput from "./InputHook"
 
 interface PropsTargetForm {
@@ -7,7 +8,7 @@ interface PropsTargetForm {
 }
 
 const TargetSetForm = ({savings,progress,progressData}: PropsTargetForm) => {
-    const setTarget = useInput()    
+    const setTarget = useInput()  
     const handleReset = () =>  progressData(Number(setTarget.value))
     return(
         <div>

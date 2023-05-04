@@ -27,6 +27,13 @@ const IncomeHandlingForm = ({addAmount}:PropsIncomeHandling) => {
         setTransection([...transection,formData])
         addAmount(Number(amountInput.value))        
     }
+    const removeTransection = (itemIndex: number) => {
+        // This deletes the amount from the subtotal
+        // thats why -ve
+        addAmount(-Number(transection[itemIndex].amount))        
+        let newArray = transection.filter((item,index) => index !== itemIndex)
+        setTransection(newArray)
+    }
     return(
         <article>
             <form id="form-income" onSubmit={handleSubmit}>
@@ -38,7 +45,7 @@ const IncomeHandlingForm = ({addAmount}:PropsIncomeHandling) => {
                 <input id="input-date-income" placeholder='dd.mm.yyyy' {...dateInput} type='date'  required/>
                 <button type="submit">Add income</button>
             </form>
-            <DataDisplayForm transectionHistory={transection}/>
+            <DataDisplayForm transectionHistory={transection} removeTransection={removeTransection}/>
         </article>
     )
 }
