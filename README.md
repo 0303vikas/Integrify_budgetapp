@@ -17,6 +17,7 @@
 
 
 ## File structure
+'''
 .
 ├── App.scss
 ├── App.test.tsx
@@ -35,5 +36,7 @@
 ├── react-app-env.d.ts
 ├── reportWebVitals.ts
 └── setupTests.ts
+
+'''
 
 
